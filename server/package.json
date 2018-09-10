@@ -1,0 +1,24 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "A server performing search on the most viral pictures of Imgur",
+  "main": "index.js",
+  "scripts": {
+    "serve": "tsc && node dist/index.js",
+    "test": "tsc && mocha dist/**/*.spec.js"
+  },
+  "author": "Thomas De Bluts",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^4.1.4",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.9.4",
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.14"
+  }
+}
