@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Image } from '../models/image.model';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
+  searchControl = new FormControl;
+
+  images: Image[] = [];
+
+
+  search() {
+    console.log(this.searchControl.value);
+  }
 }
