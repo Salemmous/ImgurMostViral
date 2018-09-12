@@ -4,15 +4,20 @@ import {
   MatToolbarModule,
   MatFormFieldModule,
   MatInputModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatCardModule,
+  MatButtonModule
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SanitizerPipe } from './sanitizer.pipe';
+import { HttpClientModule } from '@angular/common/http';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        SanitizerPipe
       ],
       imports: [
         BrowserAnimationsModule,
@@ -20,6 +25,9 @@ describe('AppComponent', () => {
         MatFormFieldModule,
         MatInputModule,
         MatTooltipModule,
+        MatCardModule,
+        MatButtonModule,
+        HttpClientModule,
         FormsModule,
         ReactiveFormsModule
       ]
