@@ -8,18 +8,26 @@ import {
   MatToolbarModule,
   MatFormFieldModule,
   MatInputModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatCardModule,
+  MatButtonModule
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { SanitizerPipe } from './sanitizer.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SanitizerPipe
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatToolbarModule,
+    MatCardModule,
+    MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
     MatTooltipModule,

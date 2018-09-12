@@ -2,7 +2,26 @@
   <h1>Most Viral Images of Imgur For CGI</h1>
 </mat-toolbar>
 <div class="content">
+  <button mat-button (click)="update()">Update the image database</button>
   <mat-form-field>
-    <input matInput="text" placeholder="Search..." (keyup)="search()" [formControl]="searchControl" matTooltip="Enter the terms you want search for"/>
+    <input matInput="text" placeholder="Search..." (keyup)="search()" [formControl]="searchControl" matTooltip="Enter the terms you want search for" />
   </mat-form-field>
+  <div class="images">
+    <mat-card *ngFor="let image of images">
+      <mat-card-header>
+        <mat-card-title [matTooltip]="image.gallery_title"><span>{{image.gallery_title}}</span></mat-card-title>
+        <mat-card-subtitle [matTooltip]="image.gallery_title"><span>{{image.gallery_desc}}</span></mat-card-subtitle>
+      </mat-card-header>
+      <img *ngIf="!image.img_link.endsWith('.mp4')" mat-card-image [src]="image.img_link | sanitizer" [alt]="image.img_desc" [matTooltip]="image.img_desc">
+      <video *ngIf="image.img_link.endsWith('.mp4')" mat-card-image width="320" height="240" controls [matTooltip]="image.img_desc">
+        <source [src]="image.img_link | sanitizer" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <mat-card-content>
+        <p>
+          {{image.img_desc}}
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>

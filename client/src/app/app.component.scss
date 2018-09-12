@@ -3,6 +3,16 @@ h1 {
     margin: 0 auto;
 }
 
+button {
+    max-width: 325px !important;
+    opacity: .3;
+    transition: all 1s ease-in-out;
+}
+
+button:hover {
+    opacity: 1;
+}
+
 .content {
     width: 100%;
     text-align: center;
@@ -12,7 +22,37 @@ h1 {
     margin-top: 12%;
 }
 
-.content * {
+mat-form-field {
     max-width: 650px;
     width: 100%;
+}
+
+.images {
+    display: flex;
+    flex-flow: row wrap;
+    text-align: left;
+}
+
+.images mat-card {
+    margin: 1rem;
+    max-width: 10rem;
+    white-space: nowrap;
+}
+
+mat-card-content p {
+    max-height: 100px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+mat-card-title span {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
+    max-width: 10rem;
+}
+mat-card-subtitle span {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
+    max-width: 10rem;
 }
