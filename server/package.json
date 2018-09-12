@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "serve": "tsc && node dist/index.js",
-    "test": "tsc && mocha dist/**/*.spec.js"
+    "test": "tsc && mocha --timeout 20000 dist/**/*.spec.js"
   },
   "author": "Thomas De Bluts",
   "license": "ISC",
@@ -14,12 +14,16 @@
     "@types/mocha": "^5.2.5",
     "@types/mongoose": "^5.2.12",
     "@types/node": "^10.9.4",
+    "@types/request": "^2.47.1",
+    "@types/request-promise": "^4.1.42",
     "chai": "^4.1.2",
     "mocha": "^5.2.0"
   },
   "dependencies": {
     "cors": "^2.8.4",
     "express": "^4.16.3",
-    "mongoose": "^5.2.14"
+    "mongoose": "^5.2.14",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
   }
 }

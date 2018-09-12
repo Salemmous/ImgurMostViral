@@ -25,7 +25,7 @@ const ImageSchema = new mongoose.Schema({
     gallery_topic: String,
     gallery_section: String,
 
-    user: { type: String, required: true },
+    user: String,
 
     img_title: String,
     img_desc: String,

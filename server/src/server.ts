@@ -7,6 +7,8 @@ import * as path from 'path';
 import * as mongoose from 'mongoose';
 
 import { ServerConfig } from './config';
+import { ApiController } from './controllers/api.controller';
+import { exists } from 'fs';
 
 
 export class AppServer {
@@ -37,25 +39,27 @@ export class AppServer {
         this.app.use(bodyParser.json());
 
         (<any>mongoose).Promise = global.Promise;
-        mongoose.connect(ServerConfig.connectionString);
+        mongoose.connect(ServerConfig.connectionString, { useNewUrlParser: true });
+        mongoose.set('useCreateIndex', true);
 
     }
     private routes() {
         this.app.use(express.static(path.join(__dirname, 'public')));
-        let apiRouter: express.Router = express.Router();
 
-        /*const users: UsersController = new UsersController();
+        const apiController: ApiController = new ApiController();
 
-        apiRouter.use('/users', users.getRouter());*/
-
-        this.app.use('/api', apiRouter);
+        this.app.use('/api', apiController.getRouter());
 
     }
 
     private startServer() {
-        this.server.listen(this.port, () => {
+        this.server = this.app.listen(this.port, () => {
             console.log("Server listening on port %s", this.port);
         });
+    }
+    public close() {
+        this.server.close();
+        mongoose.disconnect();
     }
     public getApp() {
         return this.app;
